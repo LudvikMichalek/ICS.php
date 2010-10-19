@@ -42,7 +42,7 @@ END:VCALENDAR';
 //set correct content-type-header
 if($event['id']){
 	header('Content-type: text/calendar; charset=utf-8');
-	header('Content-Disposition: attachment; filename=mohawk-event.ics');
+	header('Content-Disposition: attachment; filename=mydomain-event.ics');
 	echo $ical;
 } else {
 	// If $id isn't set, then kick the user back to home. Do not pass go,
