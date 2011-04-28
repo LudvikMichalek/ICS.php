@@ -1,7 +1,5 @@
 <?php
-// I know there are probably better ways to do this, but this accomplishes what I needed it to do.
-
-// Fetch vars. In this case, they're being pulled via the URL.
+// Fetch vars
 $event = array(
 	'id' => $_GET['id'],
 	'title' => $_GET['title'],
@@ -11,12 +9,10 @@ $event = array(
 	'address' => $_GET['stage']
 );
 
-// Convert times to iCalendar format. They require a block for yyyymmdd and then another block
-// for the time, which is in hhiiss. Both of those blocks are separated by a "T". The Z is
-// declared at the end for UTC time, but shouldn't be included in the date conversion.
-
 // iCal date format: yyyymmddThhiissZ
 // PHP equiv format: Ymd\This
+
+// The Function
 
 function dateToCal($time) {
 	return date('Ymd\This', $time) . 'Z';
@@ -31,9 +27,9 @@ BEGIN:VEVENT
 DTEND:' . dateToCal($event['dateend']) . '
 UID:' . md5($event['title']) . '
 DTSTAMP:' . time() . '
-LOCATION:' . addslashes('123 Fake St, MyCity, State 12345') . '
+LOCATION:' . addslashes('912 Red River St, Austin, Texas') . '
 DESCRIPTION:' . addslashes($event['description']) . '
-URL;VALUE=URI: http://mydomain.com/events/' . $event['id'] . '
+URL;VALUE=URI:http://mohawkaustin.com/events/' . $event['id'] . '
 SUMMARY:' . addslashes($event['title']) . '
 DTSTART:' . dateToCal($event['datestart']) . '
 END:VEVENT
@@ -42,11 +38,10 @@ END:VCALENDAR';
 //set correct content-type-header
 if($event['id']){
 	header('Content-type: text/calendar; charset=utf-8');
-	header('Content-Disposition: attachment; filename=mydomain-event.ics');
+	header('Content-Disposition: attachment; filename=mohawk-event.ics');
 	echo $ical;
 } else {
-	// If $id isn't set, then kick the user back to home. Do not pass go,
-        // and do not collect $200. Currently it's _very_ slow.
+	// If $id isn't set, then kick the user back to home. Do not pass go, and do not collect $200.
 	header('Location: /');
 }
 ?>
