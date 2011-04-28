@@ -3,6 +3,7 @@
 $event = array(
 	'id' => $_GET['id'],
 	'title' => $_GET['title'],
+        'address' => $_GET['address'],
 	'description' => $_GET['description'],
 	'datestart' => $_GET['datestart'],
 	'dateend' => $_GET['dateend'],
@@ -27,7 +28,7 @@ BEGIN:VEVENT
 DTEND:' . dateToCal($event['dateend']) . '
 UID:' . md5($event['title']) . '
 DTSTAMP:' . time() . '
-LOCATION:' . addslashes('912 Red River St, Austin, Texas') . '
+LOCATION:' . addslashes($event['address']) . '
 DESCRIPTION:' . addslashes($event['description']) . '
 URL;VALUE=URI:http://mohawkaustin.com/events/' . $event['id'] . '
 SUMMARY:' . addslashes($event['title']) . '
