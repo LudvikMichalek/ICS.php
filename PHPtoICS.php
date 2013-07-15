@@ -35,7 +35,7 @@ header('Content-Disposition: attachment; filename=' . $filename);
 //
 // Returns an ics-formatted timestamp
 function dateToCal($timestamp) {
-	return date('Ymd\This\Z', $timestamp);
+  return date('Ymd\This\Z', $timestamp);
 }
 
 // Escapes a string of characters
