@@ -25,39 +25,37 @@
 //
 //      https://www.ietf.org/rfc/rfc2445.txt
 
-// 1. Set the corrent headers for this file
+// 1. Set the correct headers for this file
 header('Content-type: text/calendar; charset=utf-8');
 header('Content-Disposition: attachment; filename=' . $filename);
 
 // 2. Define helper functions
 
 // Converts a unix timestamp to an ics-friendly format
-//
-// Returns an ics-formatted timestamp
 function dateToCal($timestamp) {
   return date('Ymd\This\Z', $timestamp);
 }
 
 // Escapes a string of characters
-//
-// Returns the escaped string
 function escapeString($string) {
   return preg_replace('/([\,;])/','\\\$1', $string);
 }
 
 // 3. Echo out the ics file's contents
-echo 'BEGIN:VCALENDAR
+?>
+
+BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-DTEND:' . dateToCal($dateend) . '
-UID:' . uniqid() . '
-DTSTAMP:' . dateToCal(time()) . '
-LOCATION:' . escapeString($address) . '
-DESCRIPTION:' . escapeString($description) . '
-URL;VALUE=URI: ' . escapeString($uri) . '
-SUMMARY:' . escapeString($summary) . '
-DTSTART:' . dateToCal($datestart) . '
+DTEND:<?= dateToCal($dateend) ?>
+UID:<?= uniqid() ?>
+DTSTAMP:<?= dateToCal(time()) ?>
+LOCATION:<?= escapeString($address) ?>
+DESCRIPTION:<?= escapeString($description) ?>
+URL;VALUE=URI:<?= escapeString($uri) ?>
+SUMMARY:<?= escapeString($summary) ?>
+DTSTART:<?= dateToCal($datestart) ?>
 END:VEVENT
 END:VCALENDAR';
