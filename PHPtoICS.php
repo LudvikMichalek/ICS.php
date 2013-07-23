@@ -50,7 +50,6 @@ function escapeString($string) {
 
 // 3. Echo out the ics file's contents
 ?>
-
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
