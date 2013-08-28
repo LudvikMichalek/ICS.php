@@ -39,6 +39,9 @@ header('Content-Disposition: attachment; filename=' . $filename);
 // NOTE: "Z" means that this timestamp is a UTC timestamp. If you need
 // to set a locale, remove the "\Z" and modify DTEND, DTSTAMP and DTSTART
 // with TZID properties (see RFC 5545 section 3.3.5 for info)
+//
+// Also note that we are using "g" instead of "H" because iCalendar's Time format
+// requires 24-hour time (see RFC 5545 section 3.3.12 for info).
 function dateToCal($timestamp) {
   return date('Ymd\Tgis\Z', $timestamp);
 }
