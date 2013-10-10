@@ -67,4 +67,4 @@ URL;VALUE=URI:<?= escapeString($uri) ?>
 SUMMARY:<?= escapeString($summary) ?>
 DTSTART:<?= dateToCal($datestart) ?>
 END:VEVENT
-END:VCALENDAR';
+END:VCALENDAR
