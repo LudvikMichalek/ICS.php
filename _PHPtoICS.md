@@ -1,19 +1,19 @@
 # PHP to ICS
 
-This library contains a convenient script to generate iCalendar (.ics) files on the fly in PHP.
+This gist contains a convenient script to generate iCalendar (.ics) files on the fly in PHP.
 
 ## Basic usage
 
 ```php
 include 'ICS.php'
 
-$props = array(
+$properties = array(
   'dtstart' => 'now',
   'dtend' => 'now + 30 minutes'
 );
 
-$ics = new ICS($props);
-$ics->to_string();
+$ics = new ICS($properties);
+$ics_file_contents = $ics->to_string();
 ```
 
 ### Available properties
@@ -27,7 +27,9 @@ $ics->to_string();
 
 ## Detailed examples
 
-### Button to download an ICS file
+### Button that downloads an ICS file when clicked
+
+This example contains a form on the front-end that submits to a PHP script that initiates a download of an ICS file. This example uses hidden form fields to set the properties dynamically.
 
 **index.html**
 
