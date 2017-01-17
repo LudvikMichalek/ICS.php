@@ -23,14 +23,14 @@
  *
  * Available properties
  * --------------------
+ * description
+ *   String description of the event.
  * dtend
  *   A date/time stamp designating the end of the event. You can use either a
  *   DateTime object or a PHP datetime format string (e.g. "now + 1 hour").
  * dtstart
  *   A date/time stamp designating the start of the event. You can use either a
  *   DateTime object or a PHP datetime format string (e.g. "now + 1 hour").
- * description
- *   String description of the event.
  * location
  *   String address or description of the location of the event.
  * summary
@@ -45,9 +45,9 @@ class ICS {
 
   protected $properties = array();
   private $available_properties = array(
+    'description',
     'dtend',
     'dtstart',
-    'description',
     'location',
     'summary',
     'url'

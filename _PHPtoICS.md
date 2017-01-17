@@ -18,9 +18,9 @@ $ics_file_contents = $ics->to_string();
 
 ### Available properties
 
+* **description** - string description of the event.
 * **dtend** - date/time stamp designating the end of the event. You can use either a `DateTime` object or a [PHP datetime format string](http://php.net/manual/en/datetime.formats.php) (e.g. "now + 1 hour").
 * **dtstart** - date/time stamp designating the start of the event. You can use either a `DateTime` object or a [PHP datetime format string](http://php.net/manual/en/datetime.formats.php) (e.g. "now + 1 hour").
-* **description** - string description of the event.
 * **location** - string address or description of the location of the event.
 * **summary** - string short summary of the event - usually used as the title.
 * **url** - string url to attach to the the event. Make sure to add the protocol (`http://` or `https://`).
