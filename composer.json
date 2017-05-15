@@ -1,0 +1,14 @@
+{
+	"name": "ludvikmichalek/ics.php",
+	"autoload": {
+		"psr-0": {
+			"ludvikmichalek": "src"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://gist.github.com/64e6470b6ea7fb6ac68b919788661551.git"
+		}
+	]	
+}

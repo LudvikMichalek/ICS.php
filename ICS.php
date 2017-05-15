@@ -1,5 +1,7 @@
 <?php
 
+namespace ludvikmichalek;
+
 /**
  * ICS.php
  * =======
